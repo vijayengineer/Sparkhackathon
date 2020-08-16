@@ -10,6 +10,8 @@ HTML5, Javascript files which performed the following:
 
 Collect interest rates, predicted rates from csv data from the S3 bucket
 Draw heatmap, charts for the interest rates
-Use trading view widgets to show buy, sell rates
+Use trading view widgets to show buy, sell rates.
+
+Website is hosted at www.wager.fyi
 
 
