@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>wAgEr</title>
+  <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <header class="light-bb">
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt="logo"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#headerMenu"
+        aria-controls="headerMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="icon ion-md-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="headerMenu">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Exchange
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="index.html">Exchange Home</a>
+              <a class="dropdown-item" href="exchange-light-live-price.html">Exchange Live Price</a>
+            </div>
+          </li>
+        
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Dashboard
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="settings-wallet-light.html">Investments</a>
+              <a class="dropdown-item" href="settings-light.html">Settings</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Trading Analysis
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="technical-analysis-light.html">Trading Tips</a>
+              <a class="dropdown-item" href="ML_Rates.html">DeFi interest rates</a>
+              <a class="dropdown-item" href="heat-map-light.html">Heatmaps</a>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item header-custom-icon">
+            <a class="nav-link" href="#" id="clickFullscreen">
+              <i class="icon ion-md-expand"></i>
+            </a>
+          </li>
+          <li class="nav-item dropdown header-custom-icon">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <i class="icon ion-md-notifications"></i>
+              <span class="circle-pulse"></span>
+            </a>
+            <div class="dropdown-menu">
+              <div class="dropdown-header d-flex align-items-center justify-content-between">
+                <p class="mb-0 font-weight-medium">3 New Notifications</p>
+                <a href="#!" class="text-muted">Clear all</a>
+              </div>
+              <div class="dropdown-body">
+                <a href="#!" class="dropdown-item">
+                  <div class="icon">
+                    <i class="icon ion-md-lock"></i>
+                  </div>
+                  <div class="content">
+                    <p>Welcome to wAgEr</p>
+                    <p class="sub-text text-muted">1 day ago</p>
+                  </div>
+                </a>
+                <a href="#!" class="dropdown-item">
+                  <div class="icon">
+                    <i class="icon ion-md-alert"></i>
+                  </div>
+                  <div class="content">
+                    <p>Check out updated ML rates</p>
+                    <p class="sub-text text-muted">1 hr ago</p>
+                  </div>
+                </a>
+                <a href="#!" class="dropdown-item">
+                  <div class="icon">
+                    <i class="icon ion-logo-bitcoin"></i>
+                  </div>
+                  <div class="content">
+                    <p>Bitcoin price is high now</p>
+                    <p class="sub-text text-muted">2 hrs ago</p>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-footer d-flex align-items-center justify-content-center">
+                <a href="#!">View all</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown header-img-icon">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <img src="assets/img/avatar.svg" alt="avatar">
+            </a>
+            <div class="dropdown-menu">
+              <div class="dropdown-header d-flex flex-column align-items-center">
+                <div class="figure mb-3">
+                  <img src="assets/img/avatar.svg" alt="">
+                </div>
+                <div class="info text-center">
+                  <p class="name font-weight-bold mb-0">Tony Stark</p>
+                  <p class="email text-muted mb-3">tonystark@gmail.com</p>
+                </div>
+              </div>
+              <div class="dropdown-body">
+                <ul class="profile-nav">
+                  <li class="nav-item">
+                    <a href="settings-profile-light.html" class="nav-link">
+                      <i class="icon ion-md-person"></i>
+                      <span>Profile</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="settings-light.html" class="nav-link">
+                      <i class="icon ion-md-settings"></i>
+                      <span>Settings</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="index.html" class="nav-link red">
+                      <i class="icon ion-md-power"></i>
+                      <span>Log Out</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="svg1">
+
+<h6>ETH </h6>
+
+<p><small>Historical interest rates for last 6 months </small></p>
+<p><small>Blue: stable borrow rates, Green: variable borrow rates </small></p>
+</div>
+<div id="svg2">
+<h6></h6>DAI </h6>
+<p><small>Blue: stable borrow rates, Green: variable borrow rates </small></p>
+</div>
+<div id="svg3">
+<h6>WBTC </h6>
+<p><small>Blue: stable borrow rates, Green: variable borrow rates </small></p>
+</div>
+<div id="svg4">
+<h6>USDC </h6>
+<p><small>Blue: stable borrow rates, Green: variable borrow rates </small></p>
+</div>
+<!-- Circle are black when hovered-->
+<style> .myCircle:hover {stroke: rgba(0, 0, 0, 0.692);} </style>
+    
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.6.3.min.js"></script>
+
+<script type="text/javascript">
+// set the dimensions and margins of the graph
+var margin1 = {top: 10, right: 30, bottom: 30, left: 60},
+    width1 = 860 - margin1.left - margin1.right,
+    height1 = 400 - margin1.top - margin1.bottom;
+
+// aws key and secret 
+AWS.config.accessKeyId = ;
+AWS.config.secretAccessKey = ;
+AWS.config.region = 'us-east-1';
+// create the AWS.Request object
+var bucket = new AWS.S3();
+
+// use AWS SDK getobject to retrieve csv file
+
+processBucket('wagersparkhackathon2','_aave_interestrate_dai_output.csv','#svg1');
+processBucket('wagersparkhackathon2','_aave_interestrate_eth_output.csv','#svg2');
+processBucket('wagersparkhackathon2','_aave_interestrate_wbtc_output.csv','#svg3');
+processBucket('wagersparkhackathon2','_aave_interestrate_usdc_output.csv','#svg4');
+
+//work on AWS S3 bucket
+function processBucket(bucketname,filename,selector){
+    bucket.getObject({
+    Bucket: bucketname, 
+    Key: filename
+}, 
+// function to use the data retrieve 
+function awsDataFile(error, data) {
+    if (error) {
+        return console.log(error);
+    }
+        // this where magic happens using d3.csv.parse to read myCSVdata.Body.toString()
+    var myCSVdata = d3.csvParse(data.Body.toString()); 
+    var counter = 0;
+    myCSVdata.forEach(function(d) {
+            d.variablevalue= d.vBR;
+            d.stablevalue = d.sBR;
+            dateValue = new Date(d.timestamp* 1000);
+            d.date = dateValue;
+            countLoop = counter++; 
+            d.index = counter;
+
+            if(counter>1000){
+            d.selectiondate = d.date;
+            d.stableselectionvalue = d.stablevalue;
+            d.variableselectionvalue = d.variablevalue;
+            } 
+            else{
+                d.selectiondate = 0;
+                d.stableselectionvalue = 0;
+                d.variableselectionvalue = 0;
+            }
+    }
+    );
+    draw(myCSVdata,selector, margin1,width1,height1);
+});
+}
+
+function draw(data,selector, margin,width,height){
+
+// append the svg object to the body of the page
+var svg = d3.select(selector)
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+svg
+  .append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("height", height)
+    .attr("width", width)
+    .style("fill", "EBEBEB")
+
+
+    // Add X axis --> it is a date format
+    var x = d3.scaleTime()
+      .domain(d3.extent(data, function(d) { return d.date; }))
+      .range([ 0, width]);
+    svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x).ticks(15,"%d/%m"));
+
+    // Add Y axis
+    var y = d3.scaleLinear()
+      .domain( [0,100])
+      .range([ height, 0 ]);
+    svg.append("g")
+      .call(d3.axisLeft(y));
+
+    // Add the line
+    svg.append("path")
+      .datum(data)
+      .attr("fill", "none")
+      .attr("stroke", "blue")
+      .attr("stroke-width", 1.5)
+      .attr("d", d3.line()
+        .curve(d3.curveBasis) // Just add that to have a curve instead of segments
+        .x(function(d) { return x(d.date) })
+        .y(function(d) { return y(d.stablevalue) })
+        )
+
+    // Add the line
+    svg.append("path")
+      .datum(data)
+      .attr("fill", "none")
+      .attr("stroke", "green")
+      .attr("stroke-width", 1.5)
+      .attr("d", d3.line()
+        .curve(d3.curveBasis) // Just add that to have a curve instead of segments
+        .x(function(d) { return x(d.date) })
+        .y(function(d) { return y(d.variablevalue) })
+        )
+
+    // create a tooltip
+    var Tooltip = d3.select(selector)
+      .append("div")
+      .style("opacity", 0)
+      .attr("class", "tooltip")
+      .style("background-color", "white")
+      .style("border", "solid")
+      .style("border-width", "2px")
+      .style("border-radius", "5px")
+      .style("padding", "5px")
+
+      // Three function that change the tooltip when user hover / move / leave a cell
+      var mouseover = function(d) {
+        Tooltip
+          .style("opacity", 1)
+      }
+      var mousemove1 = function(d) {
+        Tooltip
+          .html("Predicted stable interest rate: " + d.value)
+          .style("left", (d3.mouse(this)[0]+70) + "px")
+          .style("top", (d3.mouse(this)[1]) + "px")
+      }
+      var mousemove2 = function(d) {
+        Tooltip
+          .html("Predicted variable interest rate: " + d.value)
+          .style("left", (d3.mouse(this)[0]+70) + "px")
+          .style("top", (d3.mouse(this)[1]) + "px")
+      }
+      var mouseleave = function(d) {
+        Tooltip
+          .style("opacity", 0)
+      }
+
+    // Add the points
+    //function to select a portion of data 
+    var stabledataFilter = data.map(function(d){return {date: d.selectiondate, value: d.stableselectionvalue} })
+    var variabledataFilter = data.map(function(d){return {date: d.selectiondate, value: d.variableselectionvalue} })
+    svg
+    .selectAll('dot')
+      .data(stabledataFilter)
+      .enter()
+      .append("circle")
+        .attr("class", "myCircle")
+        .attr("cx", function(d) { return x(d.date) } )
+        .attr("cy", function(d) { return y(d.value) } )
+        .attr("r", 5)
+        .attr("stroke", "red")
+        .attr("stroke-width", 2)
+        .attr("fill", "white")
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove1)
+        .on("mouseleave", mouseleave)
+
+        svg
+    .selectAll('dot')
+      .data(variabledataFilter)
+      .enter()
+      .append("circle")
+        .attr("class", "myCircle")
+        .attr("cx", function(d) { return x(d.date) } )
+        .attr("cy", function(d) { return y(d.value) } )
+        .attr("r", 5)
+        .attr("stroke", "red")
+        .attr("stroke-width", 2)
+        .attr("fill", "white")
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove2)
+        .on("mouseleave", mouseleave)
+
+}
+</script>
+<script src="assets/js/jquery-3.4.1.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/amcharts-core.min.js"></script>
+<script src="assets/js/amcharts.min.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.js"></script>
+<script src="assets/js/custom.js"></script>
+</body>
+</html>
